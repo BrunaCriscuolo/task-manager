@@ -1,5 +1,5 @@
 {
-    "*.js": [
-      "eslint 'src/**' --fix"
-    ]
-  }
+  "src/**/*.ts(x)?": [
+    "yarn lint --fix"
+  ]
+}
