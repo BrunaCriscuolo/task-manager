@@ -1,20 +1,9 @@
-import React from 'react';
-import {
-  Route as ReactDomRoute,
-  RouteProps as ReactDomRouteProps,
-} from 'react-router-dom';
-
-interface RouteProps extends ReactDomRouteProps {
-  element: React.ComponentType;
+import { Route as RouteRouter, RouteProps as RProps } from 'react-router-dom';
+interface RouteProps extends RProps {
+  path: string;
+  element: React.ReactElement;
 }
 
-const Route = ({ element: Component, ...rest }: RouteProps) => {
-  return (
-    <ReactDomRoute
-      {...rest}
-      element={(props: any) => <Component {...props} />}
-    />
-  );
-};
-
-export default Route;
+export const Route = ({ path, element, ...rest }: RouteProps) => (
+  <RouteRouter path={path} {...rest} element={element} />
+);

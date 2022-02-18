@@ -1,15 +1,14 @@
-import { Routes as Switch, Route } from 'react-router-dom';
+import { Routes as RoutesRouter } from 'react-router-dom';
 
 import { Login } from 'pages/Login/login';
 import { DailyTasks } from 'pages/DailyTasks/dailyTasks';
 
-// import Route from './routes';
+import { Route } from './routes';
 
-const Routes = () => (
-  <Switch>
-    <Route path='/' element={Login} />
-    <Route path='/home' element={DailyTasks} />
-  </Switch>
+export const Routes = () => (
+  <RoutesRouter>
+    <Route path='/' element={<Login />} />
+    <Route path='/home' element={<DailyTasks />} />
+    <Route path='*' element={<p>ok</p>} />
+  </RoutesRouter>
 );
-
-export default Routes;
