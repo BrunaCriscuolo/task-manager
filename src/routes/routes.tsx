@@ -1,9 +1,11 @@
-import { Route as RouteRouter, RouteProps as RProps } from 'react-router-dom';
-interface RouteProps extends RProps {
-  path: string;
-  element: React.ReactElement;
-}
+import { ReactNode } from 'react';
 
-export const Route = ({ path, element, ...rest }: RouteProps) => (
-  <RouteRouter path={path} {...rest} element={element} />
+import { DefaultLayout } from 'pages/_layouts/default/default';
+
+type LayoutProps = {
+  component: ReactNode;
+};
+
+export const Layout = ({ component }: LayoutProps) => (
+  <DefaultLayout>{component}</DefaultLayout>
 );
